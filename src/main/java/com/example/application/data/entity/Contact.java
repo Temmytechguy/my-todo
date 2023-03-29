@@ -1,6 +1,5 @@
 package com.example.application.data.entity;
 
-import com.example.application.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -14,9 +13,7 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 public class Contact extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+
 
     @NotEmpty
     private String firstName = "";

@@ -78,6 +78,7 @@ public class ContactForm extends FormLayout {
 
 
     public void setContact(Contact contact) {
+
         binder.setBean(contact); // <1>
     }
 

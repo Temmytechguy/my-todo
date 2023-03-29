@@ -4,7 +4,6 @@ package com.example.application.data.entity;
  * @author TemmyTechie
  */
 
-import com.example.application.AbstractEntity;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

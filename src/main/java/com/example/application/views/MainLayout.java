@@ -1,11 +1,10 @@
-package com.example.application.views.main;
+package com.example.application.views;
 
 /**
  * @author TemmyTechie
  */
 
 import com.example.application.data.security.SecurityService;
-import com.example.application.views.DashboardView;
 import com.example.application.views.list.ListView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;

@@ -2,7 +2,7 @@ package com.example.application.views.list;
 
 import com.example.application.data.entity.Contact;
 import com.example.application.data.service.CrmService;
-import com.example.application.views.main.MainLayout;
+import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -18,9 +18,9 @@ import org.springframework.context.annotation.Scope;
 
 @SpringComponent
 @Scope("prototype")
-@PermitAll
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Contacts | Vaadin CRM")
+@PermitAll
 public class ListView extends VerticalLayout {
     Grid<Contact> grid = new Grid<>(Contact.class);
     TextField filterText = new TextField();
@@ -51,7 +51,7 @@ public class ListView extends VerticalLayout {
     private void configureForm() {
         form = new ContactForm(service.findAllCompanies(), service.findAllStatuses());
         form.setWidth("25em");
-        form.addSaveListener(this::saveContact); // <1>
+        form.addSaveListener( this::saveContact); // <1>
         form.addDeleteListener(this::deleteContact); // <2>
         form.addCloseListener(e -> closeEditor()); // <3>
     }

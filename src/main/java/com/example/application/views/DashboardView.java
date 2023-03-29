@@ -1,7 +1,6 @@
 package com.example.application.views;
 
 import com.example.application.data.service.CrmService;
-import com.example.application.views.main.MainLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.charts.Chart;
 import com.vaadin.flow.component.charts.model.ChartType;
@@ -18,9 +17,10 @@ import jakarta.annotation.security.PermitAll;
  * @author TemmyTechie
  */
 
-@PermitAll
+
 @Route(value = "dashboard", layout = MainLayout.class) // <1>
 @PageTitle("Dashboard | Vaadin CRM")
+@PermitAll
 public class DashboardView extends VerticalLayout {
     private final CrmService service;
 
