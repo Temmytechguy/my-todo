@@ -1,4 +1,4 @@
-package com.example.application.data.entity;
+package com.example.application;
 
 /**
  * @author TemmyTechie

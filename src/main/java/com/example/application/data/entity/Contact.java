@@ -1,9 +1,8 @@
 package com.example.application.data.entity;
 
+import com.example.application.AbstractEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +13,10 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Contact extends AbstractEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @NotEmpty
     private String firstName = "";
@@ -34,6 +37,17 @@ public class Contact extends AbstractEntity {
     @Email
     @NotEmpty
     private String email = "";
+
+    public Contact() {
+    }
+
+    public Contact(String firstName, String lastName, Company company, Status status, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.company = company;
+        this.status = status;
+        this.email = email;
+    }
 
     @Override
     public String toString() {
