@@ -1,32 +1,40 @@
 package com.example.application.views.main;
 
+import com.example.application.data.entity.Contact;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@PageTitle("Main")
-@Route(value = "")
-public class MainView extends HorizontalLayout {
+@PageTitle("Contacts List")
+@Route("")
+public class MainView extends VerticalLayout {
 
-    private TextField name;
-    private Button sayHello;
+    Grid<Contact> grid = new Grid<Contact>();
+    TextField filterText = new TextField();
+
 
     public MainView() {
-        name = new TextField("Your name");
-        sayHello = new Button("Say hello");
-        sayHello.addClickListener(e -> {
-            Notification.show("Hello " + name.getValue());
-        });
-        sayHello.addClickShortcut(Key.ENTER);
 
-        setMargin(true);
-        setVerticalComponentAlignment(Alignment.END, name, sayHello);
+        addClassName("list-view");
+        setSizeFull();
 
-        add(name, sayHello);
+        configureGrid();
+
     }
 
+    private void configureGrid()
+    {
+        grid.addClassName("contact-grid");
+        grid.setSizeFull();
+        grid.setColumns("firstName", "lastName", "email");
+        grid.addColumn(contact -> contact.getCompany().getName()).setHeader("Company");
+        grid.addColumn(contact -> contact.getStatus().getName()).setHeader("Status");
+    }
 }
