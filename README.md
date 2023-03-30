@@ -22,6 +22,9 @@ ready to be deployed. The file can be found in the `target` folder after the bui
 Once the JAR file is built, you can run it using
 `java -jar target/mytodo-1.0-SNAPSHOT.jar`
 
+##PWA (Progressive Web App)
+Install ServiceWorker as a chrome extension to download the application as a Progress Web APP
+
 ## Project structure
 
 - `MainLayout.java` in `src/main/java` contains the navigation setup (i.e., the
